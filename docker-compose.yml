@@ -9,6 +9,7 @@ services:
                 WWWGROUP: '${WWWGROUP}'
         image: sail-8.0/app
         container_name: laravel-tweets-web
+        restart: always
         extra_hosts:
             - 'host.docker.internal:host-gateway'
         ports:
@@ -46,6 +47,7 @@ services:
     pgsql:
         image: postgres:13
         container_name: laravel-tweets-db
+        restart: always
         ports:
             - '${FORWARD_DB_PORT:-5432}:5432'
         environment:
