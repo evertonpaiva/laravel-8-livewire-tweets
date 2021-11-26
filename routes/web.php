@@ -7,7 +7,8 @@ use App\Http\Livewire\{
 use App\Http\Livewire\User\UploadPhoto;
 
 Route::get('/upload', UploadPhoto::class)
-    ->name('upload.photo.user');
+    ->name('upload.photo.user')
+    ->middleware('auth');
 
 Route::get('/tweets', ShowTweets::class)
     ->name('tweets.index')
