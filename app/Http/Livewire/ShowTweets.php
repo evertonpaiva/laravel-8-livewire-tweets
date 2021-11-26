@@ -10,7 +10,7 @@ class ShowTweets extends Component
 {
     use WithPagination;
 
-    public $content = 'apenas um teste 2';
+    public $content = 'Apenas um teste 2';
 
     protected $rules = [
         'content' => 'required|min:3|max:255'
@@ -18,7 +18,7 @@ class ShowTweets extends Component
 
     public function render()
     {
-        $tweets = Tweet::with('user')->latest()->paginate(5);
+        $tweets = Tweet::with('user')->latest()->paginate(4);
 
         return view('livewire.show-tweets', [
             'tweets' => $tweets
@@ -32,7 +32,6 @@ class ShowTweets extends Component
         auth()->user()->tweets()->create([
             'content' => $this->content,
         ]);
-
 
         $this->content = '';
     }
